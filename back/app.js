@@ -3,11 +3,11 @@ import { createServer } from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { Server } from 'socket.io';
-import { log } from 'node:console';
 
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
+const port = process.env.PORT || 3000;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -28,6 +28,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
+server.listen(port, () => {
   console.log('server running at http://localhost:3000');
 });
