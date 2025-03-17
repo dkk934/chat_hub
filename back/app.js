@@ -8,7 +8,6 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 const port = process.env.PORT || 3000;
-
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.get('/', (req, res) => {
